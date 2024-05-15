@@ -17,5 +17,15 @@ vim.opt.shiftwidth = 4
 vim.opt.expandtab = false
 vim.opt.signcolumn = 'yes'
 
-vim.opt.termguicolors = true
+-- enable 24-bit color
 vim.opt.clipboard = 'unnamedplus'
+
+-- nvim-tree setup
+-- disable netrw
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+require("nvim-tree").setup()
+
+-- bufferline setup
+vim.opt.termguicolors = true
+require("bufferline").setup{}

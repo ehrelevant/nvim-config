@@ -49,3 +49,13 @@ vim.keymap.set('n', 'U', '<C-r>', {})
 vim.keymap.set('n', '<leader>o', ':<C-u>call append(line("."), repeat([""], v:count1))<CR>', defaults)
 vim.keymap.set('n', '<leader>O', ':<C-u>call append(line(".")-1, repeat([""], v:count1))<CR>', defaults)
 vim.keymap.set('n', '<leader><CR>', 'o<ESC>', defaults)
+
+
+-- telescope
+vim.keymap.set('n', '<leader>ff', ':Telescope find_files<CR>', {})
+vim.keymap.set('n', '<leader>fg', ':Telescope git_files<CR>', {})
+vim.keymap.set('n', '<leader>fb', ':Telescope live_grep<CR>', {})
+vim.keymap.set('n', '<leader>fh', ':Telescope oldfiles<CR>', {})
+
+-- nvim-tree
+vim.keymap.set('n', '<leader>e', ':NvimTreeFindFileToggle<CR>')

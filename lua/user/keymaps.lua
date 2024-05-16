@@ -50,6 +50,21 @@ vim.keymap.set('n', '<leader>o', ':<C-u>call append(line("."), repeat([""], v:co
 vim.keymap.set('n', '<leader>O', ':<C-u>call append(line(".")-1, repeat([""], v:count1))<CR>', defaults)
 vim.keymap.set('n', '<leader><CR>', 'o<ESC>', defaults)
 
+-- buffers
+vim.keymap.set('n', '<leader>bl', ':bn<CR>') -- next
+vim.keymap.set('n', '<leader>bh', ':bp<CR>') -- previous
+vim.keymap.set('n', '<leader>bx', ':bd<CR>') -- delete
+
+-- switching between split windows
+vim.keymap.set('n', '<C-Left>', '<C-w>h', defaults)
+vim.keymap.set('n', '<C-Down>', '<C-w>j', defaults)
+vim.keymap.set('n', '<C-Up>', '<C-w>k', defaults)
+vim.keymap.set('n', '<C-Right>', '<C-w>l', defaults)
+vim.keymap.set('n', '<C-h>', '<C-w>h', defaults)
+vim.keymap.set('n', '<C-j>', '<C-w>j', defaults)
+vim.keymap.set('n', '<C-k>', '<C-w>k', defaults)
+vim.keymap.set('n', '<C-l>', '<C-w>l', defaults)
+
 
 -- telescope
 vim.keymap.set('n', '<leader>ff', ':Telescope find_files<CR>', {})

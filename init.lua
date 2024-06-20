@@ -1,3 +1,5 @@
+require('user.settings')
 require('user.keymaps')
 require('user.lazy')
-require('user.settings')
+require('user.keymaps-plugins')
+require('user.settings-plugins')

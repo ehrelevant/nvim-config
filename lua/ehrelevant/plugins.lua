@@ -70,4 +70,18 @@ require 'lazy'.setup {
       }
     end,
   },
+  {
+    'nvim-treesitter/nvim-treesitter',
+    build = ':TSUpdate',
+    config = function () 
+      require 'nvim-treesitter.configs'.setup({
+        ensure_installed = { 'bash', 'c', 'lua', 'luadoc', 'vim', 'vimdoc', 'markdown', 'javascript', 'html' },
+        sync_install = false,
+        highlight = { enable = true },
+        indent = { enable = true },  
+      })
+      require 'nvim-treesitter.install'.prefer_git = true
+    end
+  },
+  'folke/which-key.nvim',
 }

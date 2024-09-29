@@ -36,6 +36,9 @@ vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 vim.opt.foldenable = false
 
+-- Don't show mode since lualine already does that
+vim.opt.showmode = false
+
 -- Misc
 vim.opt.signcolumn = 'yes'
 vim.opt.clipboard = 'unnamedplus'

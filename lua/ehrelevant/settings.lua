@@ -20,13 +20,6 @@ vim.opt.wrap = true
 vim.opt.breakindent = true
 vim.opt.autoindent = true
 
--- Tab options
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.smarttab = true
-vim.opt.shiftwidth = 4
-vim.opt.expandtab = false
-
 -- Preview subsitutions
 vim.opt.inccommand = "split"
 

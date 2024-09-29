@@ -16,11 +16,16 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require 'lazy'.setup {
+  'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
   {
-	'folke/tokyonight.nvim',
-	priority = 1000,
-	init = function()
-	  vim.cmd.colorscheme 'tokyonight-night'
-	end,
+    'folke/tokyonight.nvim',
+    priority = 1000,
+    init = function()
+      vim.cmd.colorscheme 'tokyonight-night'
+    end,
   },
+  {
+    'nvim-lualine/lualine.nvim',
+    dependencies = { 'nvim-tree/nvim-web-devicons' }
+  }
 }

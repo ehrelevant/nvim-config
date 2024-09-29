@@ -1,5 +1,3 @@
-require('user.settings')
-require('user.keymaps')
-require('user.lazy')
-require('user.keymaps-plugins')
-require('user.settings-plugins')
+require "ehrelevant.settings"
+require "ehrelevant.keymaps"
+require "ehrelevant.plugins"

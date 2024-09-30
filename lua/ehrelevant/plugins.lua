@@ -84,4 +84,11 @@ require 'lazy'.setup {
     end
   },
   'folke/which-key.nvim',
+  { 
+    'echasnovski/mini.pairs',
+    version = false,
+    config = function()
+      require 'mini.pairs'.setup()
+    end
+  },
 }

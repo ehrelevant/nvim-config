@@ -66,7 +66,7 @@ require 'lazy'.setup {
         tabline = {},
         winbar = {},
         inactive_winbar = {},
-        extensions = {}
+        extensions = {'neo-tree'}
       }
     end,
   },
@@ -163,6 +163,107 @@ require 'lazy'.setup {
           row = 0,
           col = 1
         },
+      }
+    end
+  },
+  {
+    'nvim-neo-tree/neo-tree.nvim',
+    cmd = 'Neotree',
+    branch = 'v3.x',
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'nvim-tree/nvim-web-devicons', -- not strictly required, but recommended
+      'MunifTanjim/nui.nvim',
+    },
+    keys = {
+      {
+        "<leader>fe",
+        function()
+          require("neo-tree.command").execute({ toggle = true, dir = vim.uv.cwd() })
+        end,
+        desc = "Explorer NeoTree (cwd)",
+      },
+      { "<leader>e", "<leader>fe", desc = "Explorer NeoTree (Root Dir)", remap = true },
+      { "<leader>E", "<leader>fE", desc = "Explorer NeoTree (cwd)", remap = true },
+      {
+        "<leader>ge",
+        function()
+          require("neo-tree.command").execute({ source = "git_status", toggle = true })
+        end,
+        desc = "Git Explorer",
+      },
+      {
+        "<leader>be",
+        function()
+          require("neo-tree.command").execute({ source = "buffers", toggle = true })
+        end,
+        desc = "Buffer Explorer",
+      },
+    },
+
+    deactivate = function()
+      vim.cmd([[Neotree close]])
+    end,
+
+    init = function()
+      if vim.fn.argc(-1) == 1 then
+        local stat = vim.loop.fs_stat(vim.fn.argv(0))
+        if stat and stat.type == 'directory' then
+          require('neo-tree').setup {
+            filesystem = {
+              hijack_netrw_behavior = 'open_current',
+            },
+          }
+        end
+      end
+    end,
+
+    config = function()
+      vim.fn.sign_define("DiagnosticSignError",
+        {text = " ", texthl = "DiagnosticSignError"})
+      vim.fn.sign_define("DiagnosticSignWarn",
+        {text = " ", texthl = "DiagnosticSignWarn"})
+      vim.fn.sign_define("DiagnosticSignInfo",
+        {text = " ", texthl = "DiagnosticSignInfo"})
+      vim.fn.sign_define("DiagnosticSignHint",
+        {text = "󰌵", texthl = "DiagnosticSignHint"})
+
+      require 'neo-tree'.setup {
+        sources = {'filesystem', 'buffers', 'git_status'},
+        open_files_do_not_replace_types = {'terminal', 'trouble', 'qf'},
+        enable_git_status = true,
+        enable_diagnostics = true,
+        filesystem = {
+          filtered_items = {
+            visible = true,
+            hide_dotfiles = true,
+            hide_gitignored = true,
+          },
+          hijack_netrw_behavior = 'open_default',
+          use_libuv_file_watcher = true,
+        },
+        window = {
+          ["l"] = "open",
+          ["h"] = "close_node",
+          ["<space>"] = "none",
+          ["Y"] = {
+            function(state)
+              local node = state.tree:get_node()
+              local path = node:get_id()
+              vim.fn.setreg("+", path, "c")
+            end,
+            desc = "Copy Path to Clipboard",
+          },
+          ["P"] = { "toggle_preview", config = { use_float = false } },
+        },
+        default_component_configs = {
+          git_status = {
+            symbols = {
+              unstaged = "󰄱",
+              staged = "󰱒",
+            },
+          },
+        }
       }
     end
   }

@@ -27,8 +27,16 @@ vim.keymap.set('n', '<leader>o', ':<C-u>call append(line("."), repeat([""], v:co
 vim.keymap.set('n', '<leader>O', ':<C-u>call append(line(".")-1, repeat([""], v:count1))<CR>', defaults)
 vim.keymap.set('n', '<leader><CR>', 'o<ESC>', defaults)
 
--- Buffers
-vim.keymap.set('n', '<leader>bl', ':bn<CR>', { desc = '[B]uffer Next' }) -- next
-vim.keymap.set('n', '<leader>bh', ':bp<CR>', { desc = '[B]uffer Previous' }) -- previous
-vim.keymap.set('n', '<leader>bx', ':bd<CR>', { desc = '[B]uffer Delete' }) -- delete
+-- Buffer navigation
+vim.keymap.set('n', '<S-l>', ':bn<CR>', { desc = '[B]uffer Next' }) -- next
+vim.keymap.set('n', '<S-h>', ':bp<CR>', { desc = '[B]uffer Previous' }) -- previous
+vim.keymap.set('n', '[b', ':bn<CR>', { desc = '[B]uffer Next' }) -- next
+vim.keymap.set('n', ']b', ':bp<CR>', { desc = '[B]uffer Previous' }) -- previous
+vim.keymap.set('n', '<leader>bd', ':bd<CR>', { desc = '[B]uffer Delete' }) -- delete
+
+-- Window navigation
+vim.keymap.set('n', '<C-h>', '<C-w>h')
+vim.keymap.set('n', '<C-j>', '<C-w>j')
+vim.keymap.set('n', '<C-k>', '<C-w>k')
+vim.keymap.set('n', '<C-l>', '<C-w>l')
 

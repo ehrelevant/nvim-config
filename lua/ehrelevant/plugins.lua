@@ -6,7 +6,7 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
   if vim.v.shell_error ~= 0 then
     vim.api.nvim_echo({
       { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
-      { out, "WarningMsg" },
+      { out,                            "WarningMsg" },
       { "\nPress any key to exit..." },
     }, true, {})
     vim.fn.getchar()
@@ -32,8 +32,8 @@ require 'lazy'.setup {
         options = {
           icons_enabled = true,
           theme = 'auto',
-          component_separators = { left = '', right = ''},
-          section_separators = { left = '', right = ''},
+          component_separators = { left = '', right = '' },
+          section_separators = { left = '', right = '' },
           disabled_filetypes = {
             statusline = {},
             winbar = {},
@@ -48,34 +48,34 @@ require 'lazy'.setup {
           }
         },
         sections = {
-          lualine_a = {'mode'},
-          lualine_b = {'branch', 'diff', 'diagnostics'},
-          lualine_c = {'filename'},
-          lualine_x = {'encoding', 'fileformat', 'filetype'},
-          lualine_y = {'progress'},
-          lualine_z = {'location'}
+          lualine_a = { 'mode' },
+          lualine_b = { 'branch', 'diff', 'diagnostics' },
+          lualine_c = { 'filename' },
+          lualine_x = { 'encoding', 'fileformat', 'filetype' },
+          lualine_y = { 'progress' },
+          lualine_z = { 'location' }
         },
         inactive_sections = {
           lualine_a = {},
           lualine_b = {},
-          lualine_c = {'filename'},
-          lualine_x = {'location'},
+          lualine_c = { 'filename' },
+          lualine_x = { 'location' },
           lualine_y = {},
           lualine_z = {}
         },
         tabline = {},
         winbar = {},
         inactive_winbar = {},
-        extensions = {'neo-tree'}
+        extensions = { 'neo-tree' }
       }
     end,
   },
   {
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
-    config = function () 
+    config = function()
       require 'nvim-treesitter.configs'.setup({
-        ensure_installed = { 
+        ensure_installed = {
           'bash',
           'diff',
           'c',
@@ -98,13 +98,13 @@ require 'lazy'.setup {
         },
         sync_install = false,
         highlight = { enable = true },
-        indent = { enable = true },  
+        indent = { enable = true },
       })
       require 'nvim-treesitter.install'.prefer_git = true
     end
   },
   'folke/which-key.nvim',
-  { 
+  {
     'echasnovski/mini.pairs',
     version = false,
     config = function()
@@ -115,7 +115,7 @@ require 'lazy'.setup {
     'lewis6991/gitsigns.nvim',
     config = function()
       require 'gitsigns'.setup {
-        signs = {
+        signs                        = {
           add          = { text = '┃' },
           change       = { text = '┃' },
           delete       = { text = '_' },
@@ -123,7 +123,7 @@ require 'lazy'.setup {
           changedelete = { text = '~' },
           untracked    = { text = '┆' },
         },
-        signs_staged = {
+        signs_staged                 = {
           add          = { text = '┃' },
           change       = { text = '┃' },
           delete       = { text = '_' },
@@ -131,18 +131,18 @@ require 'lazy'.setup {
           changedelete = { text = '~' },
           untracked    = { text = '┆' },
         },
-        signs_staged_enable = true,
-        signcolumn = true,  -- Toggle with `:Gitsigns toggle_signs`
-        numhl      = false, -- Toggle with `:Gitsigns toggle_numhl`
-        linehl     = false, -- Toggle with `:Gitsigns toggle_linehl`
-        word_diff  = false, -- Toggle with `:Gitsigns toggle_word_diff`
-        watch_gitdir = {
+        signs_staged_enable          = true,
+        signcolumn                   = true,  -- Toggle with `:Gitsigns toggle_signs`
+        numhl                        = false, -- Toggle with `:Gitsigns toggle_numhl`
+        linehl                       = false, -- Toggle with `:Gitsigns toggle_linehl`
+        word_diff                    = false, -- Toggle with `:Gitsigns toggle_word_diff`
+        watch_gitdir                 = {
           follow_files = true
         },
-        auto_attach = true,
-        attach_to_untracked = false,
-        current_line_blame = false, -- Toggle with `:Gitsigns toggle_current_line_blame`
-        current_line_blame_opts = {
+        auto_attach                  = true,
+        attach_to_untracked          = false,
+        current_line_blame           = false, -- Toggle with `:Gitsigns toggle_current_line_blame`
+        current_line_blame_opts      = {
           virt_text = true,
           virt_text_pos = 'eol', -- 'eol' | 'overlay' | 'right_align'
           delay = 1000,
@@ -151,11 +151,11 @@ require 'lazy'.setup {
           use_focus = true,
         },
         current_line_blame_formatter = '<author>, <author_time:%R> - <summary>',
-        sign_priority = 6,
-        update_debounce = 100,
-        status_formatter = nil, -- Use default
-        max_file_length = 40000, -- Disable if file is longer than this (in lines)
-        preview_config = {
+        sign_priority                = 6,
+        update_debounce              = 100,
+        status_formatter             = nil,   -- Use default
+        max_file_length              = 40000, -- Disable if file is longer than this (in lines)
+        preview_config               = {
           -- Options passed to nvim_open_win
           border = 'single',
           style = 'minimal',
@@ -184,7 +184,7 @@ require 'lazy'.setup {
         desc = "Explorer NeoTree (cwd)",
       },
       { "<leader>e", "<leader>fe", desc = "Explorer NeoTree (Root Dir)", remap = true },
-      { "<leader>E", "<leader>fE", desc = "Explorer NeoTree (cwd)", remap = true },
+      { "<leader>E", "<leader>fE", desc = "Explorer NeoTree (cwd)",      remap = true },
       {
         "<leader>ge",
         function()
@@ -220,17 +220,17 @@ require 'lazy'.setup {
 
     config = function()
       vim.fn.sign_define("DiagnosticSignError",
-        {text = " ", texthl = "DiagnosticSignError"})
+        { text = " ", texthl = "DiagnosticSignError" })
       vim.fn.sign_define("DiagnosticSignWarn",
-        {text = " ", texthl = "DiagnosticSignWarn"})
+        { text = " ", texthl = "DiagnosticSignWarn" })
       vim.fn.sign_define("DiagnosticSignInfo",
-        {text = " ", texthl = "DiagnosticSignInfo"})
+        { text = " ", texthl = "DiagnosticSignInfo" })
       vim.fn.sign_define("DiagnosticSignHint",
-        {text = "󰌵", texthl = "DiagnosticSignHint"})
+        { text = "󰌵", texthl = "DiagnosticSignHint" })
 
       require 'neo-tree'.setup {
-        sources = {'filesystem', 'buffers', 'git_status'},
-        open_files_do_not_replace_types = {'terminal', 'trouble', 'qf'},
+        sources = { 'filesystem', 'buffers', 'git_status' },
+        open_files_do_not_replace_types = { 'terminal', 'trouble', 'qf' },
         enable_git_status = true,
         enable_diagnostics = true,
         filesystem = {
@@ -268,8 +268,8 @@ require 'lazy'.setup {
     end
   },
   {
-    'akinsho/bufferline.nvim', 
-    version = "*", 
+    'akinsho/bufferline.nvim',
+    version = "*",
     dependencies = {
       'nvim-tree/nvim-web-devicons'
     },
@@ -290,8 +290,8 @@ require 'lazy'.setup {
     end
   },
   {
-    'akinsho/toggleterm.nvim', 
-    version = "*", 
+    'akinsho/toggleterm.nvim',
+    version = "*",
     config = function()
       require 'toggleterm'.setup {
         open_mapping = [[<c-_>]], -- Equivalent to <c-/>
@@ -320,7 +320,7 @@ require 'lazy'.setup {
           local map = function(keys, func, desc)
             vim.keymap.set('n', keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
           end
-          
+
           -- Rename the variable under your cursor.
           map('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
 
@@ -333,7 +333,7 @@ require 'lazy'.setup {
 
           -- Goto Declaration.
           map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
-        
+
           -- The following autocommand is used to enable inlay hints in your
           -- code, if the language server you are using supports them
           --
@@ -378,7 +378,7 @@ require 'lazy'.setup {
           },
         },
       }
-      
+
       require 'mason'.setup()
 
       local ensure_installed = vim.tbl_keys(servers or {})
@@ -489,7 +489,7 @@ require 'lazy'.setup {
             vim_item.menu = ''
             return vim_item
           end,
-        }, 
+        },
       }
 
       cmp.setup.cmdline({ '/', '?' }, {
@@ -508,6 +508,37 @@ require 'lazy'.setup {
         }),
       })
     end
-  }
+  },
+  {
+    'stevearc/conform.nvim',
+    lazy = false,
+    keys = {
+      {
+        '<leader>F',
+        function()
+          require('conform').format { async = true, lsp_fallback = true }
+        end,
+        mode = '',
+        desc = '[F]ormat buffer',
+      },
+    },
+    opts = {
+      notify_on_error = false,
+      format_on_save = function(bufnr)
+        -- Disable "format_on_save lsp_fallback" for languages that don't
+        -- have a well standardized coding style. You can add additional
+        -- languages here or re-enable it for the disabled ones.
+        local disable_filetypes = { c = true, cpp = true }
+        return {
+          timeout_ms = 500,
+          lsp_fallback = not disable_filetypes[vim.bo[bufnr].filetype],
+        }
+      end,
+      formatters_by_ft = {
+        lua = { 'stylua' },
+        python = { { 'ruff', 'black', 'flake8' } },
+        javascript = { { 'prettierd', 'prettier' } },
+      },
+    },
+  },
 }
-

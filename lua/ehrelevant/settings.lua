@@ -1,12 +1,12 @@
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
 -- Enable relative line numbers on the side
 vim.opt.number = true
 vim.opt.relativenumber = true
 
 -- Enable mouse
-vim.opt.mouse = 'a'
+vim.opt.mouse = "a"
 
 -- Search options
 vim.opt.ignorecase = true
@@ -19,6 +19,7 @@ vim.opt.wrap = true
 -- Indentation options
 vim.opt.breakindent = true
 vim.opt.autoindent = true
+vim.opt.tabstop = 4
 
 -- Preview subsitutions
 vim.opt.inccommand = "split"
@@ -40,6 +41,5 @@ vim.opt.foldenable = false
 vim.opt.showmode = false
 
 -- Misc
-vim.opt.signcolumn = 'yes'
-vim.opt.clipboard = 'unnamedplus'
-
+vim.opt.signcolumn = "yes"
+vim.opt.clipboard = "unnamedplus"

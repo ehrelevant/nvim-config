@@ -1,14 +1,13 @@
 local defaults = { noremap = true, silent = true }
 
--- map d and x (deleting motions) to blackhole registers
+-- Map d and x (deleting motions) to blackhole registers
 vim.keymap.set("n", "d", '"_d', {})
 vim.keymap.set("n", "x", '"_x', {})
 
--- map <leader>d and <leader>x to cutting
-vim.keymap.set("n", "<leader>d", "d", defaults)
-vim.keymap.set("n", "<leader>x", "x", defaults)
+-- Map `dx` cutting
+vim.keymap.set("n", "dx", '"+d', defaults)
 
--- map jj to esc
+-- Map jj to esc
 vim.keymap.set("i", "jj", "<ESC>", defaults)
 
 -- Alt + up/down to move line up/down

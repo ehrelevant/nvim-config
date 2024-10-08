@@ -267,16 +267,16 @@ require("lazy").setup({
 				default_component_configs = {
 					git_status = {
 						symbols = {
-							added = "✚",
-							modified = "",
-							deleted = "✖",
-							renamed = "󰁕",
+							added = "✚ ",
+							modified = " ",
+							deleted = "✖ ",
+							renamed = "󰁕 ",
 							-- Status type
-							untracked = "",
-							ignored = "",
-							unstaged = "󰄱",
-							staged = "",
-							conflict = "",
+							untracked = " ",
+							ignored = " ",
+							unstaged = "󰄱 ",
+							staged = " ",
+							conflict = " ",
 						},
 					},
 				},

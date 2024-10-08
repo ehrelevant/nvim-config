@@ -181,10 +181,9 @@ require("lazy").setup({
 				function()
 					require("neo-tree.command").execute({ toggle = true, dir = vim.uv.cwd() })
 				end,
-				desc = "Explorer NeoTree (cwd)",
+				desc = "Explorer NeoTree",
 			},
-			{ "<leader>e", "<leader>fe", desc = "Explorer NeoTree (Root Dir)", remap = true },
-			{ "<leader>E", "<leader>fE", desc = "Explorer NeoTree (cwd)", remap = true },
+			{ "<leader>e", "<leader>fe", desc = "Explorer NeoTree", remap = true },
 			{
 				"<leader>ge",
 				function()
@@ -544,13 +543,20 @@ require("lazy").setup({
 	{
 		"nvim-telescope/telescope.nvim",
 		branch = "0.1.x",
-		dependencies = { "nvim-lua/plenary.nvim" },
+		dependencies = { "nvim-lua/plenary.nvim", "folke/trouble.nvim" },
 		config = function()
+			local actions = require("telescope.actions")
+			local open_with_trouble = require("trouble.sources.telescope").open
+
 			require("telescope").setup({
 				defaults = {
 					mappings = {
 						i = {
 							["<C-h>"] = "which_key",
+							["<C-t>"] = open_with_trouble,
+						},
+						n = {
+							["<C-t>"] = open_with_trouble,
 						},
 					},
 				},

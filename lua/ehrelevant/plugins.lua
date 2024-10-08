@@ -206,16 +206,21 @@ require("lazy").setup({
 		end,
 
 		init = function()
-			if vim.fn.argc(-1) == 1 then
-				local stat = vim.loop.fs_stat(vim.fn.argv(0))
-				if stat and stat.type == "directory" then
-					require("neo-tree").setup({
-						filesystem = {
-							hijack_netrw_behavior = "open_current",
-						},
-					})
-				end
-			end
+			vim.api.nvim_create_autocmd("BufEnter", {
+				group = vim.api.nvim_create_augroup("Neotree_start_directory", { clear = true }),
+				desc = "Start Neo-tree with directory",
+				once = true,
+				callback = function()
+					if package.loaded["neo-tree"] then
+						return
+					else
+						local stats = vim.uv.fs_stat(vim.fn.argv(0))
+						if stats and stats.type == "directory" then
+							require("neo-tree")
+						end
+					end
+				end,
+			})
 		end,
 
 		config = function()
@@ -239,24 +244,39 @@ require("lazy").setup({
 					use_libuv_file_watcher = true,
 				},
 				window = {
-					["l"] = "open",
-					["h"] = "close_node",
-					["<space>"] = "none",
-					["Y"] = {
-						function(state)
-							local node = state.tree:get_node()
-							local path = node:get_id()
-							vim.fn.setreg("+", path, "c")
-						end,
-						desc = "Copy Path to Clipboard",
+					width = 40,
+					mapping_options = {
+						noremap = true,
+						nowait = true,
 					},
-					["P"] = { "toggle_preview", config = { use_float = false } },
+					mappings = {
+						["l"] = "open",
+						["h"] = "close_node",
+						["<space>"] = "none",
+						["Y"] = {
+							function(state)
+								local node = state.tree:get_node()
+								local path = node:get_id()
+								vim.fn.setreg("+", path, "c")
+							end,
+							desc = "Copy Path to Clipboard",
+						},
+						["P"] = { "toggle_preview", config = { use_float = false } },
+					},
 				},
 				default_component_configs = {
 					git_status = {
 						symbols = {
+							added = "✚",
+							modified = "",
+							deleted = "✖",
+							renamed = "󰁕",
+							-- Status type
+							untracked = "",
+							ignored = "",
 							unstaged = "󰄱",
-							staged = "󰱒",
+							staged = "",
+							conflict = "",
 						},
 					},
 				},

@@ -19,6 +19,7 @@ require("lazy").setup({
 	"tpope/vim-sleuth", -- Detect tabstop and shiftwidth automatically
 	{
 		"folke/tokyonight.nvim",
+		lazy = false,
 		priority = 1000,
 		init = function()
 			vim.cmd.colorscheme("tokyonight-night")

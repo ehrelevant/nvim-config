@@ -244,7 +244,7 @@ require("lazy").setup({
 					use_libuv_file_watcher = true,
 				},
 				window = {
-					width = 40,
+					width = 30,
 					mapping_options = {
 						noremap = true,
 						nowait = true,

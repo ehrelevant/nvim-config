@@ -14,7 +14,7 @@ vim.opt.smartcase = true
 vim.opt.hlsearch = true
 
 -- Wrapping
-vim.opt.wrap = true
+vim.opt.wrap = false
 
 -- Indentation options
 vim.opt.breakindent = true

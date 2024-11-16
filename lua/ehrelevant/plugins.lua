@@ -566,6 +566,17 @@ require("lazy").setup({
 				lua = { "stylua" },
 				python = { { "ruff", "black", "flake8" } },
 				javascript = { { "prettierd", "prettier" } },
+				php = { "php-cs-fixer" },
+			},
+			formatters = {
+				["php-cs-fixer"] = {
+					command = "php-cs-fixer",
+					args = {
+						"fix",
+						"$FILENAME",
+					},
+					stdin = false,
+				},
 			},
 		},
 	},

@@ -18,11 +18,11 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
 	"tpope/vim-sleuth", -- Detect tabstop and shiftwidth automatically
 	{
-		"folke/tokyonight.nvim",
+		"catppuccin/nvim",
 		lazy = false,
 		priority = 1000,
 		init = function()
-			vim.cmd.colorscheme("tokyonight-night")
+			vim.cmd.colorscheme("catppuccin-mocha")
 		end,
 	},
 	{

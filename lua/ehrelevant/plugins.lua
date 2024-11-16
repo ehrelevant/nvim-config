@@ -286,11 +286,13 @@ require("lazy").setup({
 			})
 		end,
 	},
+	"famiu/bufdelete.nvim",
 	{
 		"akinsho/bufferline.nvim",
 		version = "*",
 		dependencies = {
 			"nvim-tree/nvim-web-devicons",
+			"famiu/bufdelete.nvim",
 		},
 		config = function()
 			require("bufferline").setup({
@@ -304,6 +306,9 @@ require("lazy").setup({
 							text_align = "center",
 						},
 					},
+					close_command = function(bufnum)
+						require("bufdelete").bufdelete(bufnum, true)
+					end,
 				},
 			})
 		end,

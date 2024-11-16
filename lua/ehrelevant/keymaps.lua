@@ -41,7 +41,7 @@ vim.keymap.set("n", "<S-l>", ":bn<CR>", { desc = "[B]uffer Next" }) -- next
 vim.keymap.set("n", "<S-h>", ":bp<CR>", { desc = "[B]uffer Previous" }) -- previous
 vim.keymap.set("n", "[b", ":bn<CR>", { desc = "[B]uffer Next" }) -- next
 vim.keymap.set("n", "]b", ":bp<CR>", { desc = "[B]uffer Previous" }) -- previous
-vim.keymap.set("n", "<leader>bd", ":bd<CR>", { desc = "[B]uffer Delete" }) -- delete
+vim.keymap.set("n", "<leader>bd", ":Bdelete<CR>", { desc = "[B]uffer Delete" }) -- delete
 
 -- Window navigation
 vim.keymap.set("n", "<C-h>", "<C-w>h")

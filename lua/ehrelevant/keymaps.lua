@@ -5,10 +5,10 @@ vim.keymap.set("n", "d", '"_d', {})
 vim.keymap.set("n", "x", '"_x', {})
 
 -- Map `dx` cutting
-vim.keymap.set("n", "dx", '"+d', defaults)
+vim.keymap.set("n", "dx", '"+d', { desc = "Cut to Clipboard", noremap = true, silent = true })
 
 -- Map jj to esc
-vim.keymap.set("i", "jj", "<ESC>", defaults)
+vim.keymap.set("i", "jj", "<ESC>", { desc = "Switch to Normal Mode", noremap = true, silent = true })
 
 -- Alt + up/down to move line up/down
 vim.keymap.set("n", "<M-Up>", "yyddkP", defaults)
@@ -22,8 +22,18 @@ vim.keymap.set("n", "<S-Down>", "yyp", defaults)
 vim.keymap.set("n", "U", "<C-r>", {})
 
 -- Insert newline without entering insert mode
-vim.keymap.set("n", "<leader>o", ':<C-u>call append(line("."), repeat([""], v:count1))<CR>', defaults)
-vim.keymap.set("n", "<leader>O", ':<C-u>call append(line(".")-1, repeat([""], v:count1))<CR>', defaults)
+vim.keymap.set(
+	"n",
+	"<leader>o",
+	':<C-u>call append(line("."), repeat([""], v:count1))<CR>',
+	{ desc = "Newline Ahead", noremap = true, silent = true }
+)
+vim.keymap.set(
+	"n",
+	"<leader>O",
+	':<C-u>call append(line(".")-1, repeat([""], v:count1))<CR>',
+	{ desc = "Newline Behind", noremap = true, silent = true }
+)
 vim.keymap.set("n", "<leader><CR>", "o<ESC>", defaults)
 
 -- Buffer navigation

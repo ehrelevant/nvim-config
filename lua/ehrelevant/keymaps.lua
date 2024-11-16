@@ -19,7 +19,7 @@ vim.keymap.set("n", "<S-Up>", "yyP", defaults)
 vim.keymap.set("n", "<S-Down>", "yyp", defaults)
 
 -- use U for redo
-vim.keymap.set("n", "U", "<C-r>", {})
+vim.keymap.set("n", "U", "<C-r>")
 
 -- Insert newline without entering insert mode
 vim.keymap.set(
@@ -34,7 +34,7 @@ vim.keymap.set(
 	':<C-u>call append(line(".")-1, repeat([""], v:count1))<CR>',
 	{ desc = "Newline Behind", noremap = true, silent = true }
 )
-vim.keymap.set("n", "<leader><CR>", "o<ESC>", defaults)
+vim.keymap.set("n", "<leader><CR>", "o<ESC>", { desc = "Newline and Move", noremap = true, silent = true })
 
 -- Buffer navigation
 vim.keymap.set("n", "<S-l>", ":bn<CR>", { desc = "[B]uffer Next" }) -- next

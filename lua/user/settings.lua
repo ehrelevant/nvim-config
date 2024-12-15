@@ -44,7 +44,7 @@ vim.opt.showmode = false
 vim.opt.signcolumn = "yes"
 vim.opt.clipboard = "unnamedplus"
 
--- Diagnostic Signs
+-- Diagnostic Configuration
 vim.diagnostic.config({
 	signs = {
 		text = {

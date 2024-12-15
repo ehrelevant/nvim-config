@@ -44,6 +44,18 @@ vim.opt.showmode = false
 vim.opt.signcolumn = "yes"
 vim.opt.clipboard = "unnamedplus"
 
+-- Diagnostic Signs
+vim.diagnostic.config({
+	signs = {
+		text = {
+			[vim.diagnostic.severity.ERROR] = " ",
+			[vim.diagnostic.severity.WARN] = " ",
+			[vim.diagnostic.severity.HINT] = " ",
+			[vim.diagnostic.severity.WARN] = "󰌵 ",
+		},
+	},
+})
+
 -- Additional filetype definitions
 vim.filetype.add({
 	extension = {

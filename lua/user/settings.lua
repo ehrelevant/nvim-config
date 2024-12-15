@@ -54,6 +54,7 @@ vim.diagnostic.config({
 			[vim.diagnostic.severity.WARN] = "󰌵 ",
 		},
 	},
+	float = { border = "rounded" },
 })
 
 -- Additional filetype definitions

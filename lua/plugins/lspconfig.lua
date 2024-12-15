@@ -7,6 +7,24 @@ return {
 		{ "folke/neodev.nvim", opts = {} },
 	},
 	config = function()
+		local border = {
+			{ "╭", "FloatBorder" },
+			{ "─", "FloatBorder" },
+			{ "╮", "FloatBorder" },
+			{ "│", "FloatBorder" },
+			{ "╯", "FloatBorder" },
+			{ "─", "FloatBorder" },
+			{ "╰", "FloatBorder" },
+			{ "│", "FloatBorder" },
+		}
+
+		local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
+		function vim.lsp.util.open_floating_preview(contents, syntax, opts)
+			opts = opts or {}
+			opts.border = opts.border or border
+			return orig_util_open_floating_preview(contents, syntax, opts)
+		end
+
 		-- Configuration loosely taken from kickstart.nvim
 		vim.api.nvim_create_autocmd("LspAttach", {
 			group = vim.api.nvim_create_augroup("lsp-attach", { clear = true }),

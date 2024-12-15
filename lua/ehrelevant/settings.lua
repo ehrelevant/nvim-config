@@ -43,3 +43,10 @@ vim.opt.showmode = false
 -- Misc
 vim.opt.signcolumn = "yes"
 vim.opt.clipboard = "unnamedplus"
+
+-- Additional filetype definitions
+vim.filetype.add({
+	extension = {
+		purs = "purescript",
+	},
+})

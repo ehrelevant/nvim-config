@@ -7,7 +7,8 @@ return {
 			no_italic = true,
 			custom_highlights = function(colors)
 				return {
-					FloatBorder = { bg = colors.mantle },
+					FloatBorder = { bg = colors.base },
+					NormalFloat = { bg = colors.base },
 					NeoTreeWinSeparator = { fg = colors.mantle, bg = colors.mantle },
 				}
 			end,

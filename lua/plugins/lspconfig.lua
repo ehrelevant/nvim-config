@@ -103,7 +103,6 @@ return {
 			intelephense = {},
 			purescriptls = {},
 			jsonls = {},
-			typst_lsp = {},
 
 			lua_ls = {
 				settings = {

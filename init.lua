@@ -1,3 +1,3 @@
-require "ehrelevant.settings"
-require "ehrelevant.keymaps"
-require "ehrelevant.plugins"
+require("user.settings")
+require("user.keymaps")
+require("user.plugins")

@@ -15,15 +15,18 @@ return {
 					},
 					n = {
 						["<C-t>"] = open_with_trouble,
+						["<C-d>"] = actions.delete_buffer,
 					},
 				},
 			},
 		})
 
 		local builtin = require("telescope.builtin")
-		vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Telescope [F]ind [F]iles" })
+		vim.keymap.set("n", "<leader>fc", builtin.commands, { desc = "Telescope [C]ommands" })
 		vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Telescope Live [G]rep" })
 		vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Telescope [B]uffers" })
 		vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Telescope [H]elp Tags" })
+		vim.keymap.set("n", "<leader>fd", builtin.diagnostics, { desc = "Telescope [D]iagnostics" })
+		vim.keymap.set("n", "<leader>fs", builtin.diagnostics, { desc = "Telescope Fuzzy [S]earch" })
 	end,
 }

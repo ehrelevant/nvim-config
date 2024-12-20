@@ -7,6 +7,7 @@ return {
 		require("scrollbar").setup({
 			excluded_filetypes = {
 				"neo-tree",
+				"aerial",
 			},
 		})
 		require("scrollbar.handlers.gitsigns").setup()

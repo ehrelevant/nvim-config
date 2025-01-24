@@ -30,7 +30,7 @@ vim.opt.scrolloff = 5
 -- Highlights cursor line
 vim.opt.cursorline = true
 -- Forces highlight on the cursor number instead of line
-vim.opt.cursorlineopt = "number"
+vim.opt.cursorlineopt = "both"
 
 -- Folding
 vim.opt.foldmethod = "expr"

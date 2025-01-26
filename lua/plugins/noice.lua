@@ -8,6 +8,14 @@ return {
 	opts = {
 		routes = {
 			{
+				filter = {
+					event = "msg_show",
+					kind = "",
+					find = "written",
+				},
+				opts = { skip = true },
+			},
+			{
 				view = "popup",
 				filter = { event = "msg_show", cmdline = true, min_height = 2 },
 			},

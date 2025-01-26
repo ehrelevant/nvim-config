@@ -26,6 +26,7 @@ return {
 		},
 		messages = {
 			enabled = true,
+			view = "mini",
 		},
 		notify = {
 			enabled = true,

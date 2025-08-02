@@ -19,6 +19,24 @@ return {
 				scope = { enabled = true },
 				scroll = { enabled = true },
 				statuscolumn = { enabled = true },
+				terminal = { 
+						win = {
+								style = {
+										keys = {
+												-- Reconfigure default keymaps
+												q = "hide",
+												gf = "",
+												term_normal = {
+														"<esc>",
+														function() vim.cmd("stopinsert") end,
+														mode = "t",
+														expr = false,
+														desc = "Escape to normal mode (terminal)"
+												},
+										}
+								}
+						}
+				},
 				words = { enabled = true },
 		},
 		keys = {
@@ -79,5 +97,12 @@ return {
 				{ "gy", function() Snacks.picker.lsp_type_definitions() end, desc = "Goto T[y]pe Definition" },
 				{ "<leader>ss", function() Snacks.picker.lsp_symbols() end, desc = "LSP Symbols" },
 				{ "<leader>sS", function() Snacks.picker.lsp_workspace_symbols() end, desc = "LSP Workspace Symbols" },
+				-- Terminal commands
+				{ "<c-/>", function() Snacks.terminal() end, desc = "Toggle Terminal" },
+				{ "<c-_>", function() Snacks.terminal() end, desc = "which_key_ignore" },
+				-- Others
+				{ "<leader>n",  function() Snacks.notifier.show_history() end, desc = "Notification History" },
+				{ "<leader>un", function() Snacks.notifier.hide() end, desc = "Dismiss All Notifications" },
+				{ "<leader>bd", function() Snacks.bufdelete() end, desc = "Delete Buffer" },
 		}
 }

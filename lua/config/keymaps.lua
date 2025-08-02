@@ -49,8 +49,16 @@ vim.keymap.set("n", "<C-j>", "<C-w>j")
 vim.keymap.set("n", "<C-k>", "<C-w>k")
 vim.keymap.set("n", "<C-l>", "<C-w>l")
 
+-- Terminal window navigation
+vim.keymap.set("t", "<c-h>", [[<c-\><c-n><c-W>h]])
+vim.keymap.set("t", "<c-j>", [[<c-\><c-n><c-W>j]])
+vim.keymap.set("t", "<c-k>", [[<c-\><c-n><c-W>k]])
+vim.keymap.set("t", "<c-l>", [[<c-\><c-n><c-W>l]])
+
 -- Diagnostics Keymaps
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous [D]iagnostic message" })
 vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next [D]iagnostic message" })
 vim.keymap.set("n", "<leader>de", vim.diagnostic.open_float, { desc = "Show [D]iagnostic [E]rror messages" })
 vim.keymap.set("n", "<leader>dq", vim.diagnostic.setloclist, { desc = "Open [D]iagnostic [Q]uickfix list" })
+
+

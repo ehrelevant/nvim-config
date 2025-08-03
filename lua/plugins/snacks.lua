@@ -31,6 +31,12 @@ return {
 												-- Reconfigure default keymaps
 												q = "hide",
 												gf = "",
+												term_hide = {
+														"<c-_>",
+														"hide",
+														mode = "t",
+														desc = "Hide terminal",
+												},
 												term_normal = {
 														"<esc>",
 														function() vim.cmd("stopinsert") end,

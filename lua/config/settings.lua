@@ -8,6 +8,9 @@ vim.opt.relativenumber = true
 -- Enable mouse
 vim.opt.mouse = "a"
 
+-- Apply correct colors 
+vim.opt.termguicolors = true
+
 -- Search options
 vim.opt.ignorecase = true
 vim.opt.smartcase = true

@@ -1,20 +1,12 @@
 return {
-	"catppuccin/nvim",
-	lazy = false,
-	priority = 1000,
-	config = function()
-		require("catppuccin").setup({
-			no_italic = true,
-			custom_highlights = function(colors)
-				return {
-					FloatBorder = { bg = colors.base },
-					NormalFloat = { bg = colors.base },
-					NeoTreeWinSeparator = { fg = colors.mantle, bg = colors.mantle },
-				}
-			end,
-		})
-	end,
-	init = function()
-		vim.cmd.colorscheme("catppuccin-macchiato")
-	end,
+		"catppuccin/nvim",
+		lazy = false,
+		priority = 1000,
+		opts = {
+				no_italic = true,
+		},
+		config = function(_, opts)
+				require("catppuccin").setup(opts)
+				vim.cmd.colorscheme("catppuccin-macchiato")
+		end,
 }

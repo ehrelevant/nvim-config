@@ -5,7 +5,11 @@ return {
 						{
 								'mason-org/mason.nvim',
 								event = 'VeryLazy',
-								opts = {},
+								opts = {
+										ui = {
+												border = 'single',
+										},
+								},
 						},
 						'neovim/nvim-lspconfig',
 						'saghen/blink.cmp',

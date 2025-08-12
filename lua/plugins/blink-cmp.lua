@@ -19,9 +19,6 @@ return {
 						menu = {
 								border = 'single',
 						},
-						ghost_text = {
-								enabled = true,
-						},
 				},
 				cmdline = {
 						completion = {

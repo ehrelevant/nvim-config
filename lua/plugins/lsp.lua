@@ -22,7 +22,20 @@ return {
 		},
 		{
 				"pmizio/typescript-tools.nvim",
-				dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+				dependencies = {
+					"nvim-lua/plenary.nvim",
+					"neovim/nvim-lspconfig"
+				},
+				opts = {},
+		},
+		{
+				"luckasRanarison/tailwind-tools.nvim",
+				name = "tailwind-tools",
+				build = ":UpdateRemotePlugins",
+				dependencies = {
+						"nvim-treesitter/nvim-treesitter",
+						"neovim/nvim-lspconfig",
+				},
 				opts = {},
 		},
 }

@@ -26,6 +26,7 @@ return {
 								"svelte",
 								"julia",
 								"php",
+								"ruby",
 						},
 						sync_install = false,
 						highlight = { enable = true },
